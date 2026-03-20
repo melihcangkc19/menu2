@@ -36,7 +36,8 @@
         .lang-btn { cursor: pointer; opacity: 0.6; transition: 0.3s; width: 24px; height: 24px; object-fit: cover; border-radius: 50%; border: 1px solid #ddd; }
         .lang-btn:hover, .lang-btn.active { opacity: 1; transform: scale(1.1); border-color: var(--petrol); }
 
-        .hero { height: 100vh; display: flex; align-items: center; padding: 0 10%; position: relative; }
+        /* HERO BÖLÜMÜ - YÜKSEKLİK ESNEK YAPILDI */
+        .hero { min-height: 100vh; display: flex; align-items: center; padding: 120px 10% 50px 10%; position: relative; }
         .hero-text { flex: 1; z-index: 2; }
         h1 { font-size: clamp(60px, 10vw, 120px); font-weight: 400; line-height: 0.9; color: var(--taupe); margin-bottom: 25px; }
         .tagline { color: var(--petrol); font-size: 15px; letter-spacing: 6px; text-transform: lowercase; margin-bottom: 40px; }
@@ -44,25 +45,30 @@
         .cta { display: inline-block; padding: 22px 50px; background-color: var(--petrol); color: var(--white); text-decoration: none; font-size: 13px; letter-spacing: 4px; text-transform: uppercase; transition: 0.4s; border: 1px solid var(--petrol); }
         .cta:hover { background-color: transparent; color: var(--petrol); }
 
-        .coffee-cup { width: 100%; max-width: 850px; animation: float 6s ease-in-out infinite; }
+        .hero-image { flex: 1; display: flex; justify-content: flex-end; }
+        .coffee-cup { width: 100%; max-width: 700px; animation: float 6s ease-in-out infinite; }
         @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-30px); } }
 
-        /* MOBİL UYUM (HER ŞEYİ ORTALAMA) */
+        /* MOBİL UYUM (BARDAK VE YAZILAR ORTALANDI, TAŞMA ENGELLENDİ) */
         @media (max-width: 968px) {
-            nav { flex-direction: column; padding: 20px 5%; gap: 15px; position: relative; }
+            nav { flex-direction: column; padding: 20px 5%; gap: 15px; position: relative; background: var(--light-bg); }
             .logo-text { font-size: 24px; }
             .nav-links { display: flex; width: 100%; flex-wrap: wrap; justify-content: center; gap: 12px; margin-left: 0; }
             .lang-switcher { margin-left: 0; justify-content: center; width: 100%; margin-top: 10px; }
             
-            .hero { flex-direction: column; text-align: center; padding-top: 160px; justify-content: center; align-items: center; }
+            .hero { flex-direction: column; text-align: center; padding-top: 40px; justify-content: center; align-items: center; height: auto; }
             .hero-text { display: flex; flex-direction: column; align-items: center; width: 100%; }
             h1 { font-size: 55px; margin-bottom: 15px; text-align: center; }
             .tagline { font-size: 13px; margin-bottom: 25px; text-align: center; }
-            .cta { padding: 18px 40px; font-size: 12px; }
+            .cta { padding: 18px 40px; font-size: 12px; margin-bottom: 20px; }
             
-            .hero-image { display: flex; justify-content: center; align-items: center; width: 100%; margin-top: 40px; }
-            .coffee-cup { width: 85%; max-width: 350px; margin: 0 auto; display: block; }
+            .hero-image { display: flex; justify-content: center; align-items: center; width: 100%; margin-top: 10px; }
+            .coffee-cup { width: 90%; max-width: 350px; margin: 0 auto; display: block; animation: float-mobile 6s ease-in-out infinite; }
         }
+
+        /* Mobilde bardak animasyonu biraz daha hafif olsun ki ekranı taşırmasın */
+        @keyframes float-mobile { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
+
     </style>
 </head>
 <body>
@@ -124,6 +130,11 @@ function changeLang(lang) {
     localStorage.setItem('selectedLang', lang);
     document.body.className = (lang === 'ar' ? 'rtl' : '');
     
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.remove('active');
+        if(btn.src.includes(lang === 'en' ? 'gb' : (lang === 'ar' ? 'sa' : lang))) btn.classList.add('active');
+    });
+
     document.querySelectorAll('[data-key]').forEach(el => {
         const key = el.getAttribute('data-key');
         if (translations[lang][key]) {
