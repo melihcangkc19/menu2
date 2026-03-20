@@ -88,6 +88,17 @@
             .nav-links { display: none; }
             body { padding-top: 100px; }
         }
+        @media (max-width: 600px) {
+  nav { flex-direction: column; padding: 15px 5%; gap: 15px; }
+  .logo-text { font-size: 20px; }
+  .nav-links { width: 100%; flex-wrap: wrap; justify-content: center; gap: 12px; }
+  .nav-links a { margin: 0; }
+  .lang-switcher { margin-left: 0; justify-content: center; width: 100%; margin-top: 5px; }
+  body { padding-top: 180px; }
+  .card { padding: 30px 20px; width: 90%; }
+  h2 { font-size: 24px; }
+  p { font-size: 13px; }
+}
     </style>
 </head>
 <body>

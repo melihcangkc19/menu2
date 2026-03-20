@@ -42,7 +42,20 @@ nav { position: fixed; top: 0; width: 100%; padding: 30px 10%; display: flex; ju
 .price { font-weight: 600; color: var(--petrol); font-size: 16px; }
 .multi-price { display: flex; flex-direction: column; gap: 4px; font-size: 12px; text-align: right; }
 .multi-price b { color: var(--petrol); margin-left: 5px; font-size: 14px; }
-@media (max-width: 600px) { nav { padding: 20px 5%; } .nav-links { display: none; } .header h1 { font-size: 40px; } }
+
+/* TELEFON (MOBİL) UYUM AYARLARI BURADA */
+@media (max-width: 600px) { 
+    nav { flex-direction: column; padding: 15px 5%; gap: 15px; } 
+    body { padding-top: 170px; }
+    .logo-text { font-size: 20px; }
+    .nav-links { width: 100%; flex-wrap: wrap; justify-content: center; gap: 12px; margin-left: 0; } 
+    .nav-links a { margin: 0; font-size: 11px; }
+    .lang-switcher { margin-left: 0; justify-content: center; width: 100%; margin-top: 5px; }
+    .header h1 { font-size: 40px; } 
+    .cat-btn { padding: 15px 20px; font-size: 13px; }
+    .name { font-size: 14px; }
+    .price { font-size: 15px; }
+}
 </style>
 </head>
 <body>
@@ -115,8 +128,8 @@ nav { position: fixed; top: 0; width: 100%; padding: 30px 10%; display: flex; ju
 <div class="item"><div class="name" data-key="item_fresh_2">Tazeler 2 (Elma - Havuç - Portakal)</div><div class="price">₺216</div></div>
 <div class="item"><div class="name" data-key="item_fresh_3">Tazeler 3 (Elma - Armut - Havuç)</div><div class="price">₺216</div></div>
 <div class="item"><div class="name" data-key="item_fresh_4">Tazeler 4 (Elma - Armut - Portakal)</div><div class="price">₺216</div></div>
-<div class="item"><div class="name" data-key="item_detox_1">Detox 1 (Elma - Salatalık - Roka - Zencefil)</div><div class="price">₺234</div></div>
-<div class="item"><div class="name" data-key="item_detox_2">Detox 2 (Elma - Havuç - Maydanoz - Zencefil)</div><div class="price">₺234</div></div>
+<div class="item"><div class="name" data-key="item_detox_1">Detox 1 (Elma-Salatalık-Roka-Zencefil)</div><div class="price">₺234</div></div>
+<div class="item"><div class="name" data-key="item_detox_2">Detox 2 (Elma-Havuç-Maydanoz-Zencefil)</div><div class="price">₺234</div></div>
 </div>
 </div>
 
@@ -180,7 +193,7 @@ nav_home: "Anasayfa", nav_menu: "Menü", nav_contact: "İletişim", menu_title: 
 cat_hot: "Sıcak Kahveler", cat_cold: "Soğuk Kahveler", cat_lemon: "Limonata & Organik", cat_ms: "Milkshakes", cat_cocktail: "Kokteyller", cat_dessert: "Tatlılar", cat_snack: "Atıştırmalıklar",
 it_latte_mac: "Latte Macchiato", it_car_latte: "Caramel Latte", it_mocha: "Mocha", it_w_mocha: "White Mocha", it_cappucino: "Cappucino", item_sahlep: "Sahlep", item_hot_choc: "Sıcak Çikolata", it_flat_white: "Flat White", it_espresso: "Espresso", item_turkish: "Türk Kahvesi", it_cortado: "Cortado", item_tea: "Çay", it_americano: "Americano", item_filter: "Filtre Kahve",
 it_ice_mac: "Ice Macchiato", it_ice_latte: "Ice Latte", it_ice_car: "Ice Caramel Latte", it_ice_moc: "Ice Mocha", it_ice_wmoc: "Ice White Mocha", it_ice_ame: "Ice Americano", it_cold_brew: "Cold Brew",
-item_lim_hand: "El Yapımı Limonata", item_lim_straw: "Çilekli Limonata", item_lim_apple: "Elmalı Limonata", item_lim_mint: "Naneli Limonata", item_orange_j: "Portakal Suyu", item_fresh_1: "Tazeler 1 (Portakal - Nar)", item_fresh_2: "Tazeler 2 (Elma - Havuç - Portakal)", item_fresh_3: "Tazeler 3 (Elma - Armut - Havuç)", item_fresh_4: "Tazeler 4 (Elma - Armut - Portakal)", item_detox_1: "Detox 1 (Elma - Salatalık - Roka - Zencefil)", item_detox_2: "Detox 2 (Elma - Havuç - Maydanoz - Zencefil)",
+item_lim_hand: "El Yapımı Limonata", item_lim_straw: "Çilekli Limonata", item_lim_apple: "Elmalı Limonata", item_lim_mint: "Naneli Limonata", item_orange_j: "Portakal Suyu", item_fresh_1: "Tazeler 1 (Portakal - Nar)", item_fresh_2: "Tazeler 2 (Elma - Havuç - Portakal)", item_fresh_3: "Tazeler 3 (Elma - Armut - Havuç)", item_fresh_4: "Tazeler 4 (Elma - Armut - Portakal)", item_detox_1: "Detox 1 (Elma-Salatalık-Roka-Zencefil)", item_detox_2: "Detox 2 (Elma-Havuç-Maydanoz-Zencefil)",
 item_ms_straw: "Çilekli Milkshake", item_ms_oreo: "Oreolu Milkshake", item_ms_choc: "Çikolatalı Milkshake", item_ms_white: "Beyaz Çikolatalı Milkshake", item_ms_vanilla: "Vanilyalı Milkshake", item_ms_esp: "Espressolu Milkshake",
 it_mojito: "Mojito", it_cool_lime: "Cool Lime", it_berry_hib: "Berry Hibiscus", it_it_fruit: "Meyveli Ice Tea", it_it_lemon: "Limonlu Ice Tea", it_straw_moj: "Çilekli Mojito", it_forest_ice: "Orman Meyveli Dondurma", it_pi_matcha: "Pistachio Matcha Latte",
 it_mag_ore: "Oreolu Magnolia", it_spoon: "Spoonful", it_dubai_mag: "Dubai Magnolia", it_san_seb: "San Sebastian Cheesecake", it_lotus_mag: "Lotus Magnolia", it_bro_white: "Beyaz Çikolatalı Browni", it_choc_pro: "Çikolatalı Profiterol", it_matcha_cookie: "Matcha Cookie", it_spicy_cookie: "Baharatlı Tuzlu Kurabiye", it_alacati_cookie: "Tuzlu Alaçatı Kurabiye", it_beze: "Beze",
