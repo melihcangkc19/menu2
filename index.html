@@ -10,7 +10,7 @@
 @font-face { font-family: 'Agrandir'; src: url('fonts/Agrandir-Narrow.otf') format('opentype'); }
 :root { --petrol: #5C8885; --taupe: #6C6058; --beige: #D8C2A9; --light-bg: #F9F7F2; --white: #ffffff; }
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: 'Agrandir', sans-serif !important; background-color: var(--light-bg); color: var(--taupe); padding-top: 120px; transition: 0.3s; }
+body { font-family: 'Agrandir', sans-serif !important; background-color: var(--light-bg); color: var(--taupe); padding-top: 120px; transition: 0.3s; overflow-x: hidden; }
 body.rtl { direction: rtl; text-align: right; }
 body.rtl .cat-btn { text-align: right; }
 body.rtl .cat-btn::after { margin-right: auto; margin-left: 0; }
@@ -26,31 +26,33 @@ nav { position: fixed; top: 0; width: 100%; padding: 30px 10%; display: flex; ju
 .lang-switcher { display: flex; gap: 10px; margin-left: 20px; }
 .lang-btn { cursor: pointer; opacity: 0.4; width: 22px; height: 22px; border-radius: 50%; border: 1px solid #ddd; transition: 0.3s; object-fit: cover; }
 .lang-btn.active, .lang-btn:hover { opacity: 1; transform: scale(1.1); border-color: var(--petrol); }
-.container { max-width: 700px; margin: 0 auto; padding: 20px 20px 100px 20px; }
-.header { text-align: center; margin-bottom: 60px; }
-.header h1 { font-family: 'Arinoe', serif !important; font-size: 50px; letter-spacing: 8px; margin-bottom: 10px; }
-.header span { color: var(--petrol); font-size: 13px; letter-spacing: 5px; text-transform: uppercase; }
-.category { margin-bottom: 12px; }
+
+.container { max-width: 700px; margin: 0 auto; padding: 20px 20px 100px 20px; width: 100%; display: flex; flex-direction: column; align-items: center; }
+.header { width: 100%; display: flex; flex-direction: column; align-items: center; text-align: center; margin-bottom: 60px; }
+.header h1 { font-family: 'Arinoe', serif !important; font-size: 50px; letter-spacing: 8px; margin: 0 auto 10px auto; text-align: center; }
+.header span { color: var(--petrol); font-size: 13px; letter-spacing: 5px; text-transform: uppercase; text-align: center; display: block; margin: 0 auto; }
+.category { margin-bottom: 12px; width: 100%; }
 .cat-btn { width: 100%; padding: 22px 30px; background: var(--white); border: 1px solid rgba(108, 96, 88, 0.1); color: var(--taupe); font-size: 14px; text-align: left; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-family: 'Agrandir', sans-serif !important; letter-spacing: 3px; text-transform: uppercase; }
 .cat-btn.active { background: var(--petrol); color: var(--white); }
 .cat-btn::after { content: '+'; font-size: 20px; margin-left: 15px; }
 .cat-btn.active::after { content: '−'; }
-.content { max-height: 0; overflow: hidden; transition: max-height 0.5s cubic-bezier(0, 1, 0, 1); opacity: 0; }
+.content { max-height: 0; overflow: hidden; transition: max-height 0.5s cubic-bezier(0, 1, 0, 1); opacity: 0; width: 100%; }
 .cat-btn.active + .content { opacity: 1; padding: 20px 25px; max-height: 8000px; }
-.item { display: flex; justify-content: space-between; align-items: flex-start; padding: 18px 0; border-bottom: 1px solid rgba(108, 96, 88, 0.08); }
+.item { display: flex; justify-content: space-between; align-items: flex-start; padding: 18px 0; border-bottom: 1px solid rgba(108, 96, 88, 0.08); width: 100%; }
 .name { font-size: 15px; letter-spacing: 1px; flex: 1; }
 .price { font-weight: 600; color: var(--petrol); font-size: 16px; }
 .multi-price { display: flex; flex-direction: column; gap: 4px; font-size: 12px; text-align: right; }
 .multi-price b { color: var(--petrol); margin-left: 5px; font-size: 14px; }
 
-/* TELEFON (MOBİL) UYUM AYARLARI BURADA */
+/* MOBİL MERKEZLEME (ORTALAMA) AYARLARI */
 @media (max-width: 600px) { 
     nav { flex-direction: column; padding: 15px 5%; gap: 15px; } 
     body { padding-top: 170px; }
     .logo-text { font-size: 20px; }
-    .nav-links { width: 100%; flex-wrap: wrap; justify-content: center; gap: 12px; margin-left: 0; } 
+    .nav-links { width: 100%; display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-left: 0; } 
     .nav-links a { margin: 0; font-size: 11px; }
     .lang-switcher { margin-left: 0; justify-content: center; width: 100%; margin-top: 5px; }
+    .container { padding: 15px; }
     .header h1 { font-size: 40px; } 
     .cat-btn { padding: 15px 20px; font-size: 13px; }
     .name { font-size: 14px; }

@@ -27,6 +27,7 @@
             padding-top: 120px;
             background-image: radial-gradient(circle at bottom right, rgba(92, 136, 133, 0.05), transparent 40%);
             min-height: 100vh; display: flex; flex-direction: column; align-items: center;
+            overflow-x: hidden;
         }
 
         body.rtl { direction: rtl; }
@@ -50,10 +51,15 @@
 
         /* Dil Seçici */
         .lang-switcher { display: flex; gap: 8px; margin-left: 15px; }
-        .lang-btn { cursor: pointer; opacity: 0.5; transition: 0.3s; width: 22px; height: 22px; border-radius: 50%; border: 1px solid #ccc; }
+        .lang-btn { cursor: pointer; opacity: 0.5; transition: 0.3s; width: 22px; height: 22px; border-radius: 50%; border: 1px solid #ccc; object-fit: cover; }
         .lang-btn:hover, .lang-btn.active { opacity: 1; transform: scale(1.1); border-color: var(--petrol); }
 
-        .container { width: 90%; max-width: 500px; display: flex; flex-direction: column; gap: 20px; padding-bottom: 100px; }
+        /* KONTEYNER ORTALAMA AYARI */
+        .container { 
+            width: 90%; max-width: 500px; 
+            margin: 0 auto; /* Ekranın tam ortasına hizalar */
+            display: flex; flex-direction: column; gap: 20px; padding-bottom: 100px; 
+        }
 
         .card {
             background: var(--white);
@@ -61,6 +67,7 @@
             padding: 40px 30px; border-radius: 2px; text-align: center;
             box-shadow: 0 10px 30px rgba(0,0,0,0.02);
             transition: 0.4s;
+            width: 100%;
         }
         .card:hover { transform: translateY(-5px); border-color: var(--petrol); }
 
@@ -71,34 +78,55 @@
             display: block; width: 100%; padding: 18px 0;
             font-weight: 600; text-decoration: none; font-size: 12px;
             letter-spacing: 3px; text-transform: uppercase;
-            transition: 0.3s; border-radius: 2px;
+            transition: 0.3s; border-radius: 2px; cursor: pointer;
         }
 
         .wp { border: 1px solid var(--petrol); color: var(--petrol); }
         .wp:hover { background: var(--petrol); color: var(--white); }
 
-        .map { border: 1px solid var(--taupe); color: var(--taupe); }
+        .map { border: 1px solid var(--taupe); color: var(--taupe); background: transparent; }
         .map:hover { background: var(--taupe); color: var(--white); }
 
         .insta { border: 1px solid var(--beige); color: var(--taupe); background: var(--beige); }
         .insta:hover { background: var(--taupe); color: var(--white); border-color: var(--taupe); }
 
-        @media (max-width: 600px) {
-            nav { padding: 20px 5%; }
-            .nav-links { display: none; }
-            body { padding-top: 100px; }
+        /* HARİTA SEÇİM MODALI (POP-UP) EKRANI */
+        .modal {
+            display: none; position: fixed; z-index: 2000; left: 0; top: 0; 
+            width: 100%; height: 100%; background-color: rgba(0,0,0,0.5); 
+            align-items: center; justify-content: center; backdrop-filter: blur(5px);
         }
+        .modal-content {
+            background-color: var(--white); padding: 40px 30px; border-radius: 4px; 
+            width: 85%; max-width: 350px; text-align: center; position: relative;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2); border: 1px solid var(--beige);
+        }
+        .close-btn {
+            position: absolute; right: 15px; top: 10px; font-size: 28px; 
+            cursor: pointer; color: var(--taupe); opacity: 0.5; transition: 0.3s;
+        }
+        .close-btn:hover { opacity: 1; }
+        .modal-h3 { font-size: 16px; margin-bottom: 25px; color: var(--taupe); letter-spacing: 1px; font-weight: 600; }
+        .modal-btn {
+            display: block; width: 100%; padding: 15px 0; margin-bottom: 12px; 
+            background: var(--light-bg); border: 1px solid rgba(108, 96, 88, 0.2); 
+            color: var(--taupe); text-decoration: none; border-radius: 2px; 
+            font-size: 13px; transition: 0.3s; letter-spacing: 2px; text-transform: uppercase;
+        }
+        .modal-btn:hover { background: var(--petrol); color: var(--white); border-color: var(--petrol); }
+
+        /* MOBİL UYUM */
         @media (max-width: 600px) {
-  nav { flex-direction: column; padding: 15px 5%; gap: 15px; }
-  .logo-text { font-size: 20px; }
-  .nav-links { width: 100%; flex-wrap: wrap; justify-content: center; gap: 12px; }
-  .nav-links a { margin: 0; }
-  .lang-switcher { margin-left: 0; justify-content: center; width: 100%; margin-top: 5px; }
-  body { padding-top: 180px; }
-  .card { padding: 30px 20px; width: 90%; }
-  h2 { font-size: 24px; }
-  p { font-size: 13px; }
-}
+            nav { flex-direction: column; padding: 15px 5%; gap: 15px; }
+            .logo-text { font-size: 20px; }
+            .nav-links { width: 100%; display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+            .nav-links a { margin: 0; }
+            .lang-switcher { margin-left: 0; justify-content: center; width: 100%; margin-top: 5px; }
+            body { padding-top: 180px; }
+            .card { padding: 30px 20px; width: 100%; }
+            h2 { font-size: 24px; }
+            p { font-size: 13px; }
+        }
     </style>
 </head>
 <body>
@@ -125,19 +153,29 @@
     <div class="card">
         <h2 data-key="card1_title">REZERVASYON</h2>
         <p data-key="card1_text">Doğum günü ve özel günleriniz için <br>bizimle iletişime geçebilirsiniz.</p>
-        <a href="https://wa.me/905334776616" class="btn wp" data-key="btn_wp">WhatsApp'tan Yaz</a>
+        <a href="#" class="btn wp" id="wpLink" target="_blank" data-key="btn_wp">WhatsApp'tan Yaz</a>
     </div>
 
     <div class="card">
         <h2 data-key="card2_title">ADRES</h2>
         <p data-key="card2_text">Kumla Mah. Abdullah Aslan Cad. <br>Kum Caffee No:109 Gemlik/Bursa</p>
-        <a href="https://maps.app.goo.gl/6ysbfv3RJV4DPMcT8" class="btn map" data-key="btn_map">Yol Tarifi Al</a>
+        <button class="btn map" data-key="btn_map" onclick="openMapModal()">Yol Tarifi Al</button>
     </div>
 
     <div class="card">
         <h2 data-key="card3_title">TAKİP ET</h2>
         <p data-key="card3_text">En yeni tatlar ve etkinlikler için <br>bizi Instagram'da takip edin.</p>
-        <a href="https://instagram.com/kumcaffee" class="btn insta">@kumcaffee</a>
+        <a href="https://instagram.com/kumcaffee" class="btn insta" target="_blank">@kumcaffee</a>
+    </div>
+</div>
+
+<div id="mapModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeMapModal()">&times;</span>
+        <h3 class="modal-h3" data-key="map_choose">Hangi haritayı kullanmak istersiniz?</h3>
+        <a href="https://maps.google.com/?q=Kumla+Mah.+Abdullah+Aslan+Cad.+No:109+Gemlik+Bursa" target="_blank" class="modal-btn">Google Maps</a>
+        <a href="http://maps.apple.com/?q=Kumla+Mah.+Abdullah+Aslan+Cad.+No:109+Gemlik+Bursa" target="_blank" class="modal-btn">Apple Maps</a>
+        <a href="https://yandex.com.tr/harita/?text=Kumla+Mahallesi+Abdullah+Aslan+Caddesi+No:109+Gemlik+Bursa" target="_blank" class="modal-btn">Yandex Navi / Harita</a>
     </div>
 </div>
 
@@ -148,7 +186,7 @@ const translations = {
         card1_title: "REZERVASYON", card1_text: "Doğum günü ve özel günleriniz için <br>bizimle iletişime geçebilirsiniz.",
         btn_wp: "WhatsApp'tan Yaz",
         card2_title: "ADRES", card2_text: "Kumla Mah. Abdullah Aslan Cad. <br>Kum Caffee No:109 Gemlik/Bursa",
-        btn_map: "Yol Tarifi Al",
+        btn_map: "Yol Tarifi Al", map_choose: "Hangi haritayı kullanmak istersiniz?",
         card3_title: "TAKİP ET", card3_text: "En yeni tatlar ve etkinlikler için <br>bizi Instagram'da takip edin."
     },
     en: {
@@ -156,7 +194,7 @@ const translations = {
         card1_title: "RESERVATION", card1_text: "For birthdays and special occasions, <br>you can contact us.",
         btn_wp: "Write on WhatsApp",
         card2_title: "ADDRESS", card2_text: "Kumla District, Abdullah Aslan Ave. <br>Kum Caffee No:109 Gemlik/Bursa",
-        btn_map: "Get Directions",
+        btn_map: "Get Directions", map_choose: "Which map would you like to use?",
         card3_title: "FOLLOW US", card3_text: "Follow us on Instagram for <br>the latest flavors and events."
     },
     de: {
@@ -164,7 +202,7 @@ const translations = {
         card1_title: "RESERVIERUNG", card1_text: "Für Geburtstage und besondere Anlässe <br>können Sie uns kontaktieren.",
         btn_wp: "Auf WhatsApp schreiben",
         card2_title: "ADRESSE", card2_text: "Bezirk Kumla, Abdullah-Aslan-Str. <br>Kum Caffee Nr. 109 Gemlik/Bursa",
-        btn_map: "Anfahrt planen",
+        btn_map: "Anfahrt planen", map_choose: "Welche Karte möchten Sie verwenden?",
         card3_title: "FOLGEN", card3_text: "Folgen Sie uns auf Instagram für <br>neue Geschmäcker und Events."
     },
     ar: {
@@ -172,9 +210,17 @@ const translations = {
         card1_title: "الحجز", card1_text: "لأعياد الميلاد والمناسبات الخاصة <br>يمكنكم التواصل معنا.",
         btn_wp: "تواصل عبر واتساب",
         card2_title: "العنوان", card2_text: "حي كوملا، شارع عبد الله أصلان <br>كوم كافيه رقم 109 جمليك/بورصة",
-        btn_map: "الحصول على الاتجاهات",
+        btn_map: "الحصول على الاتجاهات", map_choose: "أي خريطة تود استخدامها؟",
         card3_title: "تابعنا", card3_text: "تابعونا على إنستغرام لمعرفة <br>أحدث النكهات والفعاليات."
     }
+};
+
+// WP Otomatik Mesajları (Seçilen dile göre değişir)
+const wpMessages = {
+    tr: "Merhaba, bilgi ve rezervasyon için yazıyorum.",
+    en: "Hello, I am writing for information and reservation.",
+    de: "Hallo, ich schreibe für Informationen und Reservierung.",
+    ar: "مرحباً، أكتب للحصول على معلومات وحجز."
 };
 
 function changeLang(lang) {
@@ -187,12 +233,28 @@ function changeLang(lang) {
         if(btn.src.includes(lang === 'en' ? 'gb' : (lang === 'ar' ? 'sa' : lang))) btn.classList.add('active');
     });
 
+    // Metinleri Değiştir
     document.querySelectorAll('[data-key]').forEach(el => {
         const key = el.getAttribute('data-key');
         if (translations[lang][key]) {
             el.innerHTML = translations[lang][key];
         }
     });
+
+    // WhatsApp Mesajını Dile Göre Güncelle
+    const wpNumber = "905334776616";
+    const encodedMessage = encodeURIComponent(wpMessages[lang]);
+    document.getElementById("wpLink").href = `https://wa.me/${wpNumber}?text=${encodedMessage}`;
+}
+
+// Modal (Pop-up) İşlemleri
+function openMapModal() { document.getElementById('mapModal').style.display = 'flex'; }
+function closeMapModal() { document.getElementById('mapModal').style.display = 'none'; }
+
+// Ekranın boş bir yerine tıklayınca modalı kapat
+window.onclick = function(event) {
+    let modal = document.getElementById('mapModal');
+    if (event.target == modal) { modal.style.display = "none"; }
 }
 
 window.onload = () => {
