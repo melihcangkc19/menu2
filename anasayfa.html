@@ -1,137 +1,130 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>KUM CAFFEE | Premium</title>
-<!-- Yedek Fontlar (Local fontlar yüklenmezse diye) -->
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;500&family=Jost:wght@300;400;600&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KUM CAFFEE | Premium</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;500&family=Jost:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        @font-face { font-family: 'Arinoe'; src: url('fonts/Arinoe-Regular.otf') format('opentype'); }
+        @font-face { font-family: 'Agrandir'; src: url('fonts/Agrandir-Narrow.otf') format('opentype'); }
 
-<style>
-/* LOCAL FONT TANIMLARI (Dosyalar varsa bunları kullanır) */
-@font-face {
-font-family: 'Arinoe';
-src: url('fonts/Arinoe-Regular.otf') format('opentype');
-font-weight: normal; font-style: normal;
-}
-@font-face {
-font-family: 'Agrandir';
-src: url('fonts/Agrandir-Narrow.otf') format('opentype');
-font-weight: normal; font-style: normal;
-}
+        :root {
+            --petrol: #5C8885;
+            --taupe: #6C6058;
+            --beige: #D8C2A9;
+            --light-bg: #F9F7F2;
+            --white: #ffffff;
+        }
 
-:root {
---petrol: #5C8885;
---taupe: #6C6058;
---beige: #D8C2A9;
---light-bg: #F9F7F2;
---white: #ffffff;
-}
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Agrandir', sans-serif; }
+        h1, h2, .logo-text { font-family: 'Arinoe', serif !important; }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: var(--light-bg); color: var(--taupe); overflow-x: hidden; transition: 0.3s; }
+        body.rtl { direction: rtl; }
 
-body {
-font-family: 'Agrandir', 'Jost', sans-serif;
-background-color: var(--light-bg);
-color: var(--taupe);
-overflow-x: hidden;
-}
+        nav { position: absolute; top: 0; width: 100%; padding: 40px 10%; display: flex; justify-content: space-between; align-items: center; z-index: 100; }
+        .logo-wrapper { display: flex; align-items: center; gap: 15px; text-decoration: none; }
+        .nav-logo { height: 45px; width: auto; }
+        .logo-text { font-size: 28px; letter-spacing: 2px; color: var(--taupe); }
 
-nav {
-position: absolute; top: 0; width: 100%;
-padding: 40px 10%;
-display: flex; justify-content: space-between; align-items: center;
-z-index: 100;
-}
+        .nav-links { display: flex; gap: 30px; align-items: center; }
+        .nav-links a { text-decoration: none; color: var(--taupe); font-size: 11px; letter-spacing: 2px; text-transform: uppercase; transition: 0.3s; }
+        
+        /* Dil Seçici Stil */
+        .lang-switcher { display: flex; gap: 10px; margin-left: 20px; }
+        .lang-btn { cursor: pointer; opacity: 0.6; transition: 0.3s; width: 24px; height: 24px; object-fit: cover; border-radius: 50%; border: 1px solid #ddd; }
+        .lang-btn:hover, .lang-btn.active { opacity: 1; transform: scale(1.1); border-color: var(--petrol); }
 
-.logo-wrapper { display: flex; align-items: center; gap: 15px; }
-.nav-logo { height: 45px; width: auto; }
-.logo-text {
-font-family: 'Arinoe', 'Cormorant Garamond', serif;
-font-size: 28px; letter-spacing: 2px;
-color: var(--taupe);
-}
+        .hero { height: 100vh; display: flex; align-items: center; padding: 0 10%; position: relative; }
+        .hero-text { flex: 1; z-index: 2; }
+        h1 { font-size: clamp(60px, 10vw, 120px); font-weight: 400; line-height: 0.9; color: var(--taupe); margin-bottom: 25px; }
+        .tagline { color: var(--petrol); font-size: 15px; letter-spacing: 6px; text-transform: lowercase; margin-bottom: 40px; }
+        
+        .cta { display: inline-block; padding: 22px 50px; background-color: var(--petrol); color: var(--white); text-decoration: none; font-size: 13px; letter-spacing: 4px; text-transform: uppercase; transition: 0.4s; border: 1px solid var(--petrol); }
+        .cta:hover { background-color: transparent; color: var(--petrol); }
 
-.nav-links { display: flex; gap: 40px; }
-.nav-links a {
-text-decoration: none; color: var(--taupe);
-font-size: 12px; letter-spacing: 2px; text-transform: uppercase;
-transition: 0.3s;
-}
-.nav-links a:hover { color: var(--petrol); }
+        .coffee-cup { width: 100%; max-width: 850px; animation: float 6s ease-in-out infinite; }
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-30px); } }
 
-.hero {
-height: 100vh; display: flex; align-items: center;
-padding: 0 10%; position: relative;
-}
-
-.hero-text { flex: 1; z-index: 2; }
-
-h1 {
-font-family: 'Arinoe', 'Cormorant Garamond', serif;
-font-size: clamp(60px, 10vw, 120px);
-font-weight: 400; line-height: 0.9;
-color: var(--taupe); margin-bottom: 25px;
-}
-
-.tagline {
-color: var(--petrol); font-size: 15px; letter-spacing: 6px;
-text-transform: lowercase; margin-bottom: 40px;
-}
-
-.hero-image { flex: 1.2; display: flex; justify-content: center; align-items: center; }
-
-.coffee-cup {
-width: 100%; max-width: 850px;
-filter: drop-shadow(40px 60px 100px rgba(0,0,0,0.1));
-animation: float 6s ease-in-out infinite;
-}
-
-.circle-bg {
-position: absolute; width: 750px; height: 750px;
-background: var(--beige); border-radius: 50%;
-opacity: 0.25; z-index: -1; right: -80px;
-}
-
-.cta {
-display: inline-block; padding: 22px 50px;
-background-color: var(--petrol); color: var(--white);
-text-decoration: none; font-size: 13px; letter-spacing: 4px;
-text-transform: uppercase; transition: 0.4s;
-border: 1px solid var(--petrol);
-}
-.cta:hover { background-color: transparent; color: var(--petrol); }
-
-@keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-30px); } }
-
-@media (max-width: 968px) {
-.hero { flex-direction: column; text-align: center; padding-top: 150px; }
-h1 { font-size: 70px; }
-.hero-image { margin-top: 50px; width: 100%; }
-}
-</style>
+        @media (max-width: 968px) {
+            .hero { flex-direction: column; text-align: center; padding-top: 150px; }
+            .nav-links { display: none; }
+        }
+    </style>
 </head>
 <body>
+
 <nav>
-<div class="logo-wrapper">
-<img src="logo2.png" alt="Logo" class="nav-logo" onerror="this.style.display='none'">
-<divclass="logo-text">KUM CAFFEE</div>
-</div>
-<div class="nav-links">
-<a href="anasayfa.html">anasayfa</a>
-<a href="index.html">Menü</a>
-<a href="iletisim.html">İletişim</a>
-</div>
+    <a href="anasayfa.html" class="logo-wrapper">
+        <img src="logo2.png" alt="Logo" class="nav-logo" onerror="this.style.display='none'">
+        <div class="logo-text">KUM CAFFEE</div>
+    </a>
+    <div class="nav-links">
+        <a href="anasayfa.html" data-key="nav_home">ANASAYFA</a>
+        <a href="index.html" data-key="nav_menu">MENÜ</a>
+        <a href="iletisim.html" data-key="nav_contact">İLETİŞİM</a>
+        <div class="lang-switcher">
+            <img src="https://flagcdn.com/w40/tr.png" class="lang-btn" onclick="changeLang('tr')" title="Türkçe">
+            <img src="https://flagcdn.com/w40/gb.png" class="lang-btn" onclick="changeLang('en')" title="English">
+            <img src="https://flagcdn.com/w40/de.png" class="lang-btn" onclick="changeLang('de')" title="Deutsch">
+            <img src="https://flagcdn.com/w40/sa.png" class="lang-btn" onclick="changeLang('ar')" title="العربية">
+        </div>
+    </div>
 </nav>
-<section class="hero"><div class="hero-text">
-<p class="tagline">kahve · taze meyve suyu · serin tatlar</p>
-<h1>KUM<br>CAFFEE</h1>
-<a href="index.html" class="cta">ŞİMDİ KEŞFET</a>
-</div>
-<div class="hero-image">
-<div class="circle-bg"></div>
-<img src="coffee-cup.png" alt="Kum Caffee" class="coffee-cup" onerror="this.src='https://images.unsplash.com/photo-1559056199-641a0ac8b55e?auto=format&fit=crop&q=80&w=800'">
-</div>
+
+<section class="hero">
+    <div class="hero-text">
+        <p class="tagline" data-key="hero_tagline">kahve · taze meyve suyu · serin tatlar</p>
+        <h1 data-key="hero_title">KUM<br>CAFFEE</h1>
+        <a href="index.html" class="cta" data-key="hero_cta">ŞİMDİ KEŞFET</a>
+    </div>
+    <div class="hero-image">
+        <img src="coffee-cup.png" alt="Kum Caffee" class="coffee-cup" onerror="this.src='https://images.unsplash.com/photo-1559056199-641a0ac8b55e?auto=format&fit=crop&q=80&w=800'">
+    </div>
 </section>
+
+<script>
+const translations = {
+    tr: {
+        nav_home: "ANASAYFA", nav_menu: "MENÜ", nav_contact: "İLETİŞİM",
+        hero_tagline: "kahve · taze meyve suyu · serin tatlar",
+        hero_title: "KUM<br>CAFFEE", hero_cta: "ŞİMDİ KEŞFET"
+    },
+    en: {
+        nav_home: "HOME", nav_menu: "MENU", nav_contact: "CONTACT",
+        hero_tagline: "coffee · fresh juice · cool flavors",
+        hero_title: "KUM<br>CAFFEE", hero_cta: "DISCOVER NOW"
+    },
+    de: {
+        nav_home: "STARTSEITE", nav_menu: "MENÜ", nav_contact: "KONTAKT",
+        hero_tagline: "kaffee · frischer saft · kühle aromen",
+        hero_title: "KUM<br>CAFFEE", hero_cta: "JETZT ENTDECKEN"
+    },
+    ar: {
+        nav_home: "الصفحة الرئيسية", nav_menu: "القائمة", nav_contact: "اتصل بنا",
+        hero_tagline: "قهوة · عصير طازج · نكهات باردة",
+        hero_title: "كوم<br>كافيه", hero_cta: "اكتشف الآن"
+    }
+};
+
+function changeLang(lang) {
+    localStorage.setItem('selectedLang', lang);
+    document.body.className = (lang === 'ar' ? 'rtl' : '');
+    
+    document.querySelectorAll('[data-key]').forEach(el => {
+        const key = el.getAttribute('data-key');
+        if (translations[lang][key]) {
+            el.innerHTML = translations[lang][key];
+        }
+    });
+}
+
+// Sayfa yüklendiğinde dili kontrol et
+window.onload = () => {
+    const savedLang = localStorage.getItem('selectedLang') || 'tr';
+    changeLang(savedLang);
+};
+</script>
 </body>
 </html>
