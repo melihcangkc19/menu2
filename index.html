@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KUM CAFFEE | Menü</title>
+<!-- Fontlar -->
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;500&family=Jost:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+/* LOCAL FONT TANIMLARI */
+@font-face { font-family: 'Arinoe'; src: url('fonts/Arinoe-Regular.otf') format('opentype'); }
+@font-face { font-family: 'Agrandir'; src: url('fonts/Agrandir-Narrow.otf') format('opentype'); }
+
+:root {
+--petrol: #5C8885;
+--taupe: #6C6058;
+--beige: #D8C2A9;
+--light-bg: #F9F7F2;
+--white: #ffffff;
+--glass: rgba(255, 255, 255, 0.6);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+font-family: 'Agrandir', 'Jost', sans-serif;
+background-color: var(--light-bg);
+color: var(--taupe);
+padding-top: 120px;
+min-height: 100vh;
+background-image: radial-gradient(circle at top right, rgba(92, 136, 133, 0.05), transparent 40%);
+}
+
+/* MODERN NAVBAR */
+nav {
+position: fixed; top: 0; width: 100%;
+padding: 30px 10%;
+display: flex; justify-content: space-between; align-items: center;
+background: rgba(249, 247, 242, 0.8);
+backdrop-filter: blur(15px); z-index: 1000;
+border-bottom: 1px solid rgba(108, 96, 88, 0.05);
+}
+.logo-wrapper { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+.nav-logo { height: 35px; width: auto; }
+.logo-text { font-family: 'Arinoe', 'Cormorant Garamond', serif; font-size: 22px; color: var(--taupe); letter-spacing: 2px; }
+
+.nav-links a { text-decoration: none; color: var(--taupe); font-size: 11px; letter-spacing: 2px; text-transform: uppercase; margin-left: 30px; transition: 0.3s; }
+.nav-links a.active { color: var(--petrol); font-weight: 600; }
+
+.container { max-width: 700px; margin: 0 auto; padding: 20px 20px 100px 20px; }
+
+.header { text-align: center; margin-bottom: 60px; }
+.header h1 { font-family: 'Arinoe', serif; font-size: 50px; font-weight: 400; letter-spacing: 8px; color: var(--taupe); margin-bottom: 10px; }
+.header span { font-family: 'Agrandir', sans-serif; color: var(--petrol); font-size: 13px; letter-spacing: 5px; text-transform: uppercase; }
+
+/* KATEGORİ BUTONU */
+.category { margin-bottom: 12px; }
+.cat-btn {
+width: 100%; padding: 22px 30px; background: var(--white);
+border: 1px solid rgba(108, 96, 88, 0.1); border-radius: 2px;
+color: var(--taupe); font-size: 14px; text-align: left; cursor: pointer;
+display: flex; justify-content: space-between; align-items: center;
+transition: all 0.4s ease; font-family: 'Agrandir', sans-serif;
+letter-spacing: 3px; text-transform: uppercase;
+}
+.cat-btn:hover { border-color: var(--petrol); background: #fff; }
+.cat-btn.active { background: var(--petrol); color: var(--white); border-color: var(--petrol); }
+
+.cat-btn::after { content: '+'; font-size: 20px; transition: 0.3s; font-weight: 300; }
+.cat-btn.active::after { content: '−'; transform: rotate(180deg); color: var(--white); }
+
+/* İÇERİK */
+.content {
+max-height: 0; overflow: hidden; transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
+padding: 0 15px; opacity: 0; background: rgba(255,255,255,0.3);
+}
+.cat-btn.active + .content { opacity: 1; padding: 20px 25px; max-height: 2000px; }
+
+/* MENU ITEM STYLE */
+.item {
+display: flex; justify-content: space-between; align-items: flex-start;
+padding: 18px 0; border-bottom: 1px solid rgba(108, 96, 88, 0.08);
+}
+.item:last-child { border: none; }
+.name { font-size: 15px; font-weight: 400; color: var(--taupe); letter-spacing: 1px; flex: 1; }
+
+.price-wrapper { text-align: right; }
+.price { font-weight: 600; color: var(--petrol); font-size: 16px; font-family: 'Agrandir', sans-serif; }.multi-price { display: flex; flex-direction: column; gap: 4px; font-size: 12px; color: var(--taupe); opacity: 0.8; }
+.multi-price span b { color: var(--petrol); margin-left: 5px; font-size: 14px; }
+
+@media (max-width: 600px) {
+.header h1 { font-size: 40px; }
+nav { padding: 20px 5%; }
+.nav-links { display: none; }
+.logo-text { font-size: 18px; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+<a href="anasayfa.html" class="logo-wrapper">
+<img src="logo2.png" alt="Logo" class="nav-logo" onerror="this.style.display='none'">
+<div class="logo-text">KUM CAFFEE</div>
+</a>
+<div class="nav-links">
+<a href="anasayfa.html">Anasayfa</a>
+<a href="index.html" class="active">Menü</a>
+<a href="iletisim.html">İletişim</a>
+</div>
+</nav>
+
+<div class="container">
+<div class="header">
+<h1>MENÜ</h1>
+<span>Premium Coffee Experience</span>
+</div>
+
+<!-- 1. SICAK KAHVELER -->
+<div class="category">
+<button class="cat-btn">Sıcak Kahveler</button>
+<div class="content">
+<div class="item"><div class="name">Latte Macchiato</div><div class="multi-price"><span>8oz: <b>₺135</b></span><span>12oz: <b>₺145</b></span></div></div>
+<div class="item"><div class="name">Caramel Latte</div><div class="multi-price"><span>8oz: <b>₺145</b></span><span>12oz: <b>₺165</b></span></div></div>
+<div class="item"><div class="name">Mocha</div><div class="multi-price"><span>8oz: <b>₺145</b></span><span>12oz: <b>₺165</b></span></div></div>
+<div class="item"><div class="name">White Mocha</div><div class="multi-price"><span>8oz: <b>₺145</b></span><span>12oz: <b>₺165</b></span></div></div>
+<div class="item"><div class="name">Cappucino</div><div class="multi-price"><span>8oz: <b>₺135</b></span><span>12oz: <b>₺145</b></span></div></div>
+<div class="item"><div class="name">Sahlep</div><div class="multi-price"><span>8oz: <b>₺130</b></span><span>12oz: <b>₺155</b></span></div></div>
+<div class="item"><div class="name">Hot Chocolate</div><div class="multi-price"><span>8oz: <b>₺130</b></span><span>12oz: <b>₺155</b></span></div></div>
+<div class="item"><div class="name">Flat White</div><div class="price">₺145</div></div>
+<div class="item"><div class="name">Espresso</div><div class="multi-price"><span>S: <b>₺90</b></span><span>D: <b>₺125</b></span></div></div>
+<div class="item"><div class="name">Türk Kahvesi</div><div class="price">₺110</div></div>
+<div class="item"><div class="name">Cortado</div><div class="price">₺145</div></div>
+<div class="item"><div class="name">Çay</div><div class="price">₺48</div></div>
+<div class="item"><div class="name">Americano</div><div class="multi-price"><span>8oz: <b>₺105</b></span><span>12oz: <b>₺115</b></span></div></div>
+<div class="item"><div class="name">Filtre Kahve</div><div class="multi-price"><span>8oz: <b>₺100</b></span><span>12oz: <b>₺110</b></span></div></div>
+</div>
+</div>
+
+<!-- 2. SOĞUK KAHVELER -->
+<div class="category">
+<button class="cat-btn">Soğuk Kahveler</button>
+<div class="content">
+<div class="item"><div class="name">Ice Macchiato</div><div class="price">₺155</div></div>
+<div class="item"><div class="name">Ice Latte</div><div class="price">₺155</div></div>
+<div class="item"><div class="name">Ice Caramel Latte</div><div class="price">₺165</div></div>
+<div class="item"><div class="name">Ice Mocha</div><div class="price">₺165</div></div>
+<div class="item"><div class="name">Ice White Mocha</div><div class="price">₺165</div></div>
+<div class="item"><div class="name">Ice Americano</div><div class="price">₺125</div></div>
+<div class="item"><div class="name">Cold Brew</div><div class="price">₺138</div></div>
+</div>
+</div>
+
+<!-- 3. LİMONATALAR -->
+<div class="category">
+<button class="cat-btn">Limonatalar</button>
+<div class="content">
+<div class="item"><div class="name">El Yapımı Limonata</div><div class="price">₺110</div></div><div class="item"><div class="name">Çilekli Limonata</div><div class="price">₺125</div></div>
+<div class="item"><div class="name">Elmalı Limonata</div><div class="price">₺125</div></div>
+<div class="item"><div class="name">Naneli Limonata</div><div class="price">₺115</div></div>
+</div>
+</div>
+
+<!-- 4. ORGANİK İÇECEKLER -->
+<div class="category">
+<button class="cat-btn">Organik İçecekler</button>
+<div class="content">
+<div class="item"><div class="name">Portakal Suyu</div><div class="price">₺150</div></div>
+<div class="item"><div class="name">Tazeler 1 (Portakal - Nar)</div><div class="price">₺175</div></div>
+<div class="item"><div class="name">Tazeler 2 (Elma, Havuç, Portakal)</div><div class="price">₺180</div></div>
+<div class="item"><div class="name">Tazeler 3 (Armut, Elma, Havuç)</div><div class="price">₺180</div></div>
+<div class="item"><div class="name">Tazeler 4 (Portakal, Elma, Armut)</div><div class="price">₺180</div></div>
+<div class="item"><div class="name">Detox 1 (Elma, Salatalık, Roka)</div><div class="price">₺195</div></div>
+<div class="item"><div class="name">Detox 2 (Elma, Havuç, Maydanoz)</div><div class="price">₺195</div></div>
+</div>
+</div>
+
+<!-- 5. MILKSHAKES -->
+<div class="category">
+<button class="cat-btn">Milkshakes</button>
+<div class="content">
+<div class="item"><div class="name">Çilekli Milkshake</div><div class="price">₺185</div></div>
+<div class="item"><div class="name">Oreolu Milkshake</div><div class="price">₺190</div></div>
+<div class="item"><div class="name">Çikolatalı Milkshake</div><div class="price">₺165</div></div>
+<div class="item"><div class="name">Beyaz Çikolatalı Milkshake</div><div class="price">₺165</div></div>
+<div class="item"><div class="name">Vanilyalı Milkshake</div><div class="price">₺165</div></div>
+<div class="item"><div class="name">Espressolu Milkshake</div><div class="price">₺210</div></div>
+</div>
+</div>
+
+<!-- 6. KOKTEYLLER -->
+<div class="category">
+<button class="cat-btn">El Yapımı Kokteyller</button>
+<div class="content">
+<div class="item"><div class="name">Meyveli Ice Tea</div><div class="price">₺145</div></div>
+<div class="item"><div class="name">Limonlu Ice Tea</div><div class="price">₺140</div></div>
+<div class="item"><div class="name">Mojito</div><div class="price">₺120</div></div>
+<div class="item"><div class="name">Strawberry Mojito</div><div class="price">₺155</div></div>
+<div class="item"><div class="name">Berry Ice Cream</div><div class="price">₺180</div></div>
+<div class="item"><div class="name">Pistachio Matcha Latte</div><div class="price">₺215</div></div>
+<div class="item"><div class="name">Cool Lime</div><div class="price">₺125</div></div>
+<div class="item"><div class="name">Berry Hibiscus</div><div class="price">₺135</div></div>
+</div>
+</div>
+
+<!-- 7. TATLILAR -->
+<div class="category">
+<button class="cat-btn">Tatlılar</button>
+<div class="content">
+<div class="item"><div class="name">Muzlu Magnolia</div><div class="price">₺135</div></div>
+<div class="item"><div class="name">Çilekli Magnolia</div><div class="price">₺135</div></div>
+<div class="item"><div class="name">Oreolu Magnolia</div><div class="price">₺135</div></div>
+<div class="item"><div class="name">Lotuslu Magnolia</div><div class="price">₺135</div></div>
+<div class="item"><div class="name">Spoonful</div><div class="price">₺140</div></div>
+<div class="item"><div class="name">Antep Fıstıklı Spoonful</div><div class="price">₺150</div></div>
+<div class="item"><div class="name">Tiramisu</div><div class="price">₺140</div></div>
+</div>
+</div>
+
+<!-- 8. SPECIAL TATLILAR -->
+<div class="category">
+<button class="cat-btn">Special Tatlılar</button>
+<div class="content">
+<div class="item"><div class="name">Beyaz Çikolatalı Browni</div><div class="price">₺195</div></div>
+<div class="item"><div class="name">San Sebastian</div><div class="price">₺195</div></div>
+<div class="item"><div class="name">Supangle</div><div class="price">₺210</div></div><div class="item"><div class="name">Cream Puff</div><div class="price">₺195</div></div>
+<div class="item"><div class="name">Sütlü Profiterol</div><div class="price">₺210</div></div>
+</div>
+</div>
+
+</div>
+
+<script>
+const acc = document.getElementsByClassName("cat-btn");
+for (let i = 0; i < acc.length; i++) {
+acc[i].addEventListener("click", function() {
+this.classList.toggle("active");
+const panel = this.nextElementSibling;
+if (panel.style.maxHeight) {
+panel.style.maxHeight = null;
+} else {
+panel.style.maxHeight = panel.scrollHeight + "px";
+}
+});
+}
+</script>
+</body>
+</html>

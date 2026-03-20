@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KUM CAFFEE | Premium</title>
+<!-- Yedek Fontlar (Local fontlar yüklenmezse diye) -->
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;500&family=Jost:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+/* LOCAL FONT TANIMLARI (Dosyalar varsa bunları kullanır) */
+@font-face {
+font-family: 'Arinoe';
+src: url('fonts/Arinoe-Regular.otf') format('opentype');
+font-weight: normal; font-style: normal;
+}
+@font-face {
+font-family: 'Agrandir';
+src: url('fonts/Agrandir-Narrow.otf') format('opentype');
+font-weight: normal; font-style: normal;
+}
+
+:root {
+--petrol: #5C8885;
+--taupe: #6C6058;
+--beige: #D8C2A9;
+--light-bg: #F9F7F2;
+--white: #ffffff;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+font-family: 'Agrandir', 'Jost', sans-serif;
+background-color: var(--light-bg);
+color: var(--taupe);
+overflow-x: hidden;
+}
+
+nav {
+position: absolute; top: 0; width: 100%;
+padding: 40px 10%;
+display: flex; justify-content: space-between; align-items: center;
+z-index: 100;
+}
+
+.logo-wrapper { display: flex; align-items: center; gap: 15px; }
+.nav-logo { height: 45px; width: auto; }
+.logo-text {
+font-family: 'Arinoe', 'Cormorant Garamond', serif;
+font-size: 28px; letter-spacing: 2px;
+color: var(--taupe);
+}
+
+.nav-links { display: flex; gap: 40px; }
+.nav-links a {
+text-decoration: none; color: var(--taupe);
+font-size: 12px; letter-spacing: 2px; text-transform: uppercase;
+transition: 0.3s;
+}
+.nav-links a:hover { color: var(--petrol); }
+
+.hero {
+height: 100vh; display: flex; align-items: center;
+padding: 0 10%; position: relative;
+}
+
+.hero-text { flex: 1; z-index: 2; }
+
+h1 {
+font-family: 'Arinoe', 'Cormorant Garamond', serif;
+font-size: clamp(60px, 10vw, 120px);
+font-weight: 400; line-height: 0.9;
+color: var(--taupe); margin-bottom: 25px;
+}
+
+.tagline {
+color: var(--petrol); font-size: 15px; letter-spacing: 6px;
+text-transform: lowercase; margin-bottom: 40px;
+}
+
+.hero-image { flex: 1.2; display: flex; justify-content: center; align-items: center; }
+
+.coffee-cup {
+width: 100%; max-width: 850px;
+filter: drop-shadow(40px 60px 100px rgba(0,0,0,0.1));
+animation: float 6s ease-in-out infinite;
+}
+
+.circle-bg {
+position: absolute; width: 750px; height: 750px;
+background: var(--beige); border-radius: 50%;
+opacity: 0.25; z-index: -1; right: -80px;
+}
+
+.cta {
+display: inline-block; padding: 22px 50px;
+background-color: var(--petrol); color: var(--white);
+text-decoration: none; font-size: 13px; letter-spacing: 4px;
+text-transform: uppercase; transition: 0.4s;
+border: 1px solid var(--petrol);
+}
+.cta:hover { background-color: transparent; color: var(--petrol); }
+
+@keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-30px); } }
+
+@media (max-width: 968px) {
+.hero { flex-direction: column; text-align: center; padding-top: 150px; }
+h1 { font-size: 70px; }
+.hero-image { margin-top: 50px; width: 100%; }
+}
+</style>
+</head>
+<body>
+<nav>
+<div class="logo-wrapper">
+<img src="logo2.png" alt="Logo" class="nav-logo" onerror="this.style.display='none'">
+<divclass="logo-text">KUM CAFFEE</div>
+</div>
+<div class="nav-links">
+<a href="anasayfa.html">anasayfa</a>
+<a href="index.html">Menü</a>
+<a href="iletisim.html">İletişim</a>
+</div>
+</nav>
+<section class="hero"><div class="hero-text">
+<p class="tagline">kahve · taze meyve suyu · serin tatlar</p>
+<h1>KUM<br>CAFFEE</h1>
+<a href="index.html" class="cta">ŞİMDİ KEŞFET</a>
+</div>
+<div class="hero-image">
+<div class="circle-bg"></div>
+<img src="coffee-cup.png" alt="Kum Caffee" class="coffee-cup" onerror="this.src='https://images.unsplash.com/photo-1559056199-641a0ac8b55e?auto=format&fit=crop&q=80&w=800'">
+</div>
+</section>
+</body>
+</html>

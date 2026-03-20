@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KUM CAFFEE | İletişim</title>
+<!-- Fontlar -->
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;500&family=Jost:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+/* LOCAL FONT TANIMLARI */
+@font-face { font-family: 'Arinoe'; src: url('fonts/Arinoe-Regular.otf') format('opentype'); }
+@font-face { font-family: 'Agrandir'; src: url('fonts/Agrandir-Narrow.otf') format('opentype'); }
+
+:root {
+--petrol: #5C8885;
+--taupe: #6C6058;
+--beige: #D8C2A9;
+--light-bg: #F9F7F2;
+--white: #ffffff;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+font-family: 'Agrandir', 'Jost', sans-serif;
+background: var(--light-bg);
+color: var(--taupe);
+margin: 0; padding-top: 120px;
+background-image: radial-gradient(circle at bottom right, rgba(92, 136, 133, 0.05), transparent 40%);
+min-height: 100vh; display: flex; flex-direction: column; align-items: center;
+}
+
+/* MODERN NAVBAR */
+nav {
+position: fixed; top: 0; width: 100%;
+padding: 30px 10%;
+display: flex; justify-content: space-between; align-items: center;
+background: rgba(249, 247, 242, 0.9);
+backdrop-filter: blur(20px); z-index: 1000;
+border-bottom: 1px solid rgba(108, 96, 88, 0.05);
+}
+.logo-wrapper { display: flex; align-items: center; gap: 15px; text-decoration: none; }
+.nav-logo { height: 40px; width: auto; }
+.logo-text { font-family: 'Arinoe', 'Cormorant Garamond', serif; font-size: 24px; color: var(--taupe); letter-spacing: 2px; }
+
+.nav-links a { text-decoration: none; color: var(--taupe); font-size: 11px; letter-spacing: 2px; text-transform: uppercase; margin-left: 30px; transition: 0.3s; }
+.nav-links a.active { color: var(--petrol); font-weight: 600; }
+
+.container {
+width: 90%; max-width: 500px;
+display: flex; flex-direction: column; gap: 20px;
+padding-bottom: 100px;
+}
+
+.card {
+background: var(--white);
+border: 1px solid rgba(108, 96, 88, 0.08);
+padding: 40px 30px; border-radius: 2px; text-align: center;
+box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+transition: 0.4s;
+}
+.card:hover { transform: translateY(-5px); border-color: var(--petrol); }
+
+h2 {
+font-family: 'Arinoe', serif;
+font-weight: 400; color: var(--taupe);
+letter-spacing: 5px; margin-bottom: 15px; font-size: 28px;
+text-transform: uppercase;
+}
+p { font-size: 14px; color: var(--taupe); opacity: 0.7; line-height: 1.8; margin-bottom: 25px; letter-spacing: 1px; }
+
+.btn {
+display: block; width: 100%; padding: 18px 0;
+font-weight: 600; text-decoration: none; font-size: 12px;
+letter-spacing: 3px; text-transform: uppercase;
+transition: 0.3s; border-radius: 2px;
+}
+
+/* Kurumsal Renklerde Butonlar */
+.wp { border: 1px solid var(--petrol); color: var(--petrol); }
+.wp:hover { background: var(--petrol); color: var(--white); }
+
+.map { border: 1px solid var(--taupe); color: var(--taupe); }
+.map:hover { background: var(--taupe); color: var(--white); }
+
+.insta { border: 1px solid var(--beige); color: var(--taupe); background: var(--beige); }
+.insta:hover { background: var(--taupe); color: var(--white); border-color: var(--taupe); }
+
+@media (max-width: 600px) {
+nav { padding: 20px 5%; }
+.nav-links { display: none; }
+.logo-text { font-size: 18px; }
+body { padding-top: 100px; }
+}
+
+</style>
+</head>
+<body>
+
+<nav>
+<a href="anasayfa.html" class="logo-wrapper">
+<img src="logo2.png" alt="Kum Caffee" class="nav-logo" onerror="this.style.display='none'">
+<div class="logo-text">KUM CAFFEE</div>
+</a>
+<div class="nav-links">
+<a href="anasayfa.html">Anasayfa</a>
+<a href="index.html">Menü</a><a href="iletisim.html" class="active">İletişim</a>
+</div>
+</nav>
+
+<div class="container">
+<div class="card">
+<h2>REZERVASYON</h2>
+<p>Doğum günü ve özel günleriniz için <br>bizimle iletişime geçebilirsiniz.</p>
+<a href="https://wa.me/905334776616" class="btn wp">WhatsApp'tan Yaz</a>
+</div>
+
+<div class="card">
+<h2>ADRES</h2>
+<p>Kumla Mah. Abdullah Aslan Cad. <br>Kum Caffee No:109 Gemlik/Bursa</p>
+<a href="https://maps.app.goo.gl/6ysbfv3RJV4DPMcT8" class="btn map">Yol Tarifi Al</a>
+</div>
+
+<div class="card">
+<h2>TAKİP ET</h2>
+<p>En yeni tatlar ve etkinlikler için <br>bizi Instagram'da takip edin.</p>
+<a href="https://instagram.com/kumcaffee" class="btn insta">@kumcaffee</a>
+</div>
+</div>
+
+</body>
+</html>
