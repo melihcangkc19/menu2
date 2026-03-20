@@ -36,7 +36,6 @@
         .lang-btn { cursor: pointer; opacity: 0.6; transition: 0.3s; width: 24px; height: 24px; object-fit: cover; border-radius: 50%; border: 1px solid #ddd; }
         .lang-btn:hover, .lang-btn.active { opacity: 1; transform: scale(1.1); border-color: var(--petrol); }
 
-        /* HERO BÖLÜMÜ - YÜKSEKLİK ESNEK YAPILDI */
         .hero { min-height: 100vh; display: flex; align-items: center; padding: 120px 10% 50px 10%; position: relative; }
         .hero-text { flex: 1; z-index: 2; }
         h1 { font-size: clamp(60px, 10vw, 120px); font-weight: 400; line-height: 0.9; color: var(--taupe); margin-bottom: 25px; }
@@ -49,21 +48,23 @@
         .coffee-cup { width: 100%; max-width: 700px; animation: float 6s ease-in-out infinite; }
         @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-30px); } }
 
-        /* MOBİL UYUM (BARDAK VE YAZILAR ORTALANDI, TAŞMA ENGELLENDİ) */
+        /* MOBİL UYUM (BARDAK BÜYÜTÜLDÜ VE TAM ORTALANDI) */
         @media (max-width: 968px) {
             nav { flex-direction: column; padding: 20px 5%; gap: 15px; position: relative; background: var(--light-bg); }
             .logo-text { font-size: 24px; }
             .nav-links { display: flex; width: 100%; flex-wrap: wrap; justify-content: center; gap: 12px; margin-left: 0; }
             .lang-switcher { margin-left: 0; justify-content: center; width: 100%; margin-top: 10px; }
             
-            .hero { flex-direction: column; text-align: center; padding-top: 40px; justify-content: center; align-items: center; height: auto; }
-            .hero-text { display: flex; flex-direction: column; align-items: center; width: 100%; }
+            /* Yanlardan basmayı engellemek için padding'i düşürdük */
+            .hero { flex-direction: column; text-align: center; padding: 40px 0 50px 0; justify-content: center; align-items: center; height: auto; }
+            .hero-text { display: flex; flex-direction: column; align-items: center; width: 90%; margin: 0 auto; }
             h1 { font-size: 55px; margin-bottom: 15px; text-align: center; }
             .tagline { font-size: 13px; margin-bottom: 25px; text-align: center; }
-            .cta { padding: 18px 40px; font-size: 12px; margin-bottom: 20px; }
+            .cta { padding: 18px 40px; font-size: 12px; margin-bottom: 30px; }
             
-            .hero-image { display: flex; justify-content: center; align-items: center; width: 100%; margin-top: 10px; }
-            .coffee-cup { width: 90%; max-width: 350px; margin: 0 auto; display: block; animation: float-mobile 6s ease-in-out infinite; }
+            /* Bardak alanını genişletip resmi büyüttük */
+            .hero-image { display: flex; justify-content: center; align-items: center; width: 100%; margin-top: 10px; padding: 0; }
+            .coffee-cup { width: 100%; max-width: 480px; margin: 0 auto; display: block; animation: float-mobile 6s ease-in-out infinite; }
         }
 
         /* Mobilde bardak animasyonu biraz daha hafif olsun ki ekranı taşırmasın */
